@@ -828,7 +828,69 @@ body {
 
 
 
+/* ===== MOBILE RESPONSIVE ===== */
+@media (max-width: 768px) {
 
+  .cta-section {
+    height: auto;                /* 🔥 fixed height remove */
+    padding: 40px 20px;
+    align-items: center;         /* center content */
+    background-position: center; /* image crop fix */
+  }
+
+  .cta-content {
+    padding: 20px;
+    text-align: left;
+  }
+
+  .cta-sub {
+    font-size: 18px;
+  }
+
+  .cta-anim {
+    height: 60px; /* 🔥 reduce height */
+  }
+
+  .cta-anim h2 {
+    font-size: 32px; /* 🔥 main fix */
+    line-height: 1.2;
+  }
+
+  .cta-btn {
+    padding: 10px 22px;
+    font-size: 14px;
+  }
+}
+
+/* ===== SMALL MOBILE ===== */
+@media (max-width: 480px) {
+
+  .cta-section {
+    padding: 30px 15px;
+  }
+
+  .cta-content {
+    padding: 15px;
+  }
+
+  .cta-sub {
+    font-size: 16px;
+  }
+
+  .cta-anim {
+    height: 50px;
+  }
+
+  .cta-anim h2 {
+    font-size: 26px;
+  }
+
+  .cta-btn {
+    width: 100%;          /* 🔥 full width button */
+    text-align: center;
+    padding: 12px;
+  }
+}
 
 
 
