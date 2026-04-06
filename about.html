@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+    <title> Contact Us - SISI SClinnovation Hub</title>
+    <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet">
+
+    <!-- Favicon -->
+    <link rel="icon" href="images/logo.png" type="image/png">
+
+    <link rel="stylesheet" href="css/about.css">
+</head>
+
+<body>
+<header class="navbar">
+    <div class="nav-container">
+        <div class="logo">
+            <img src="images/logo.png" alt="SI2 Logo">
+        </div>
+
+        <ul class="nav-menu" id="navMenu">
+            <li><a href="index.html" class="nav-link">Home</a></li>
+            <li><a href="about.html" class="nav-link">About Us</a></li>
+            <li class="dropdown">
+                <a href="#" class="nav-link dropdown-toggle">Services ▾</a>
+                <ul class="dropdown-menu">
+                    <li><a href="computational-tools.html"> Computational Tools in Drug Discovery</a></li>
+                    <li><a href="training-certification.html">Training & Certification</a></li>
+                    <li><a href="invitro.html">Invitro</a></li>
+                </ul>
+            </li>
+            <li><a href="blog.html" class="nav-link">Blog</a></li>
+            <li><a href="contact.html" class="nav-link">Contact Us</a></li>
+        </ul>
+
+        <div class="menu-toggle" id="menuToggle">
+            <span class="bar"></span>
+            <span class="bar"></span>
+            <span class="bar"></span>
+        </div>
+    </div>
+</header>
+<script>
+const menuToggle = document.getElementById("menuToggle");
+const navMenu = document.getElementById("navMenu");
+
+/* ✅ Toggle Mobile Menu */
+menuToggle.addEventListener("click", () => {
+    menuToggle.classList.toggle("is-active");
+    navMenu.classList.toggle("active");
+});
+
+/* ✅ Close menu when clicking links */
+document.querySelectorAll(".nav-link").forEach(link => {
+    link.addEventListener("click", () => {
+        if (window.innerWidth < 768 && !link.classList.contains("dropdown-toggle")) {
+            menuToggle.classList.remove("is-active");
+            navMenu.classList.remove("active");
+        }
+    });
+});
+
+/* ✅ FIXED: Multiple dropdown support */
+document.querySelectorAll(".dropdown").forEach(dropdown => {
+    const toggle = dropdown.querySelector(".dropdown-toggle");
+
+    if (toggle) {
+        toggle.addEventListener("click", (e) => {
+            if (window.innerWidth < 768) {
+                e.preventDefault();
+
+                // Close others (optional premium UX 🔥)
+                document.querySelectorAll(".dropdown").forEach(d => {
+                    if (d !== dropdown) d.classList.remove("active");
+                });
+
+                dropdown.classList.toggle("active");
+            }
+        });
+    }
+});
+</script>
+
+
+
+
+
+
+
+ 
+
+
+
+<section class="contact-hero">
+  <div class="contact-overlay">
+  <h1 data-aos="fade-up">ABOUT US</h1>
+  </div>
+</section>
+
+<script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+<script>
+  AOS.init({
+    duration: 1000,   // animation speed
+    once: true        // animate only once
+  });
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<section class="about-section">
+  
+  <!-- LEFT CONTENT -->
+  <div class="about-left" data-aos="fade-right">
+    <h1>ABOUT US</h1>
+    <p>
+      We are a team of experienced scientists with PhDs in Medicinal Chemistry,
+      bringing over a decade of specialized expertise in computational tools,
+      machine learning methodologies, and advanced analytical techniques  to the pharmaceutical research field..
+    </p>
+  </div>
+
+  <!-- RIGHT IMAGE -->
+  <div class="about-right" data-aos="fade-left">
+    <img src="images/aboutbg.png" alt="about">
+  </div>
+
+</section>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<section class="expertise-section">
+
+  <!-- LEFT CARD -->
+  <div class="card left-card" data-aos="fade-right">
+    <h2>OUR EXPERTISE</h2>
+    <p class="subtitle">Our core competencies include:</p>
+
+    <ul>
+      <li><strong>Computational Chemistry & Machine Learning:</strong> Extensive experience with cutting-edge computational tools and machine learning algorithms for drug discovery and development</li>
+      <li><strong>Bioisosterism:</strong> Expert analysis and design of bioisosteric replacements  for enhanced drug properties.</li>
+      <li><strong>Bioequivalence Studies:</strong>  Comprehensive evaluation of small molecules and peptides for therapeutic equivalence</li>
+      <li><strong>Advanced Analytics:</strong> Deep expertise in interpreting complex analytical results and translating data into actionable insights</li>
+    </ul>
+  </div>
+
+  <!-- RIGHT CARD -->
+  <div class="card right-card" data-aos="fade-left">
+    <h2>OUR FOCUS</h2>
+
+    <p>
+     We specialize in the analysis and optimization of small molecules and peptides, with particular emphasis on:
+    </p>
+
+    <ul>
+      <li>Structure-activity relationships</li>
+      <li>Molecular property optimization</li>
+      <li>Machine learning-driven modeling</li>
+      <li>Therapeutic equivalence assessment</li>
+      <li>Computational simulation</li>
+    </ul>
+
+    <p class="bottom-text">
+      With our decade-long experience in computational medicinal chemistry and machine learning applications, we deliver precise, scientifically rigorous solutions that advance pharmaceutical research and development.
+    </p>
+  </div>
+
+</section>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <footer class="footer">
+    <div class="footer-container">
+
+      <!-- LEFT -->
+      <div class="footer-col">
+        <img src="images/logo.png" alt="logo" class="footer-logo">
+        <p>
+          At SISI SciInnovate Hub, we are dedicated to bridging the gap
+          between scientific innovation and career excellence.
+        </p>
+
+        <div class="social-icons">
+          <a href="#"><i class="fab fa-linkedin-in"></i></a>
+          <a href="#"><i class="fab fa-facebook-f"></i></a>
+        </div>
+      </div>
+
+      <!-- QUICK LINKS -->
+      <div class="footer-col">
+        <h3>QUICK LINKS</h3>
+        <ul>
+          <li><a href="about.html">About Us</a></li>
+          <li><a href="services.html"> Services</a></li>
+          <li><a href="contact.html"> Contact Us</a></li>
+        </ul>
+      </div>
+
+      <!-- SERVICES -->
+      <div class="footer-col">
+        <h3>SERVICES</h3>
+        <ul>
+          <li><a href="computational-tools.html"> Computational Tools in Drug Discovery</a></li>
+          <li><a href="training-certification.html">Training and Certification</a></li>
+        </ul>
+      </div>
+
+      <!-- CONTACT -->
+      <div class="footer-col">
+        <h3>GET IN TOUCH</h3>
+
+        <div class="contact-item">
+          <i class="fas fa-phone"></i>
+          <div>
+            <strong>Contact Number</strong>
+            <p>+91 70325 71022</p>
+          </div>
+        </div>
+
+        <div class="contact-item">
+          <i class="fas fa-envelope"></i>
+          <div>
+            <strong>Email</strong>
+            <p>info@si2innovate.com</p>
+          </div>
+        </div>
+
+        <div class="contact-item">
+          <i class="fas fa-map-marker-alt"></i>
+          <div>
+            <strong>Address</strong>
+            <p>Hyderabad, Telangana 500084.</p>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- BOTTOM -->
+    <div class="footer-bottom">
+      © 2025 All Copyrights Reserved Si2innovate Hub |
+      Designed By
+      <a href="https://nfosoft.com" target="_blank">
+        nfoSoft Innovations
+      </a>
+    </div>
+  </footer>
+
+
+
+
+
+
+
+
+
+
+<div class="sisi-float">
+
+  <div class="sisi-main-btn" id="sisiMainBtn">
+  <span class="sisi-tooltip sisi-main-tooltip">Hide</span>
+  <i class="fas fa-comment-dots" id="sisiMainIcon"></i>
+</div>
+
+  <!-- OPTIONS -->
+  <div class="sisi-options">
+
+    <!-- PHONE -->
+    <a href="tel:+919703257102" class="sisi-item sisi-call">
+      <span class="sisi-tooltip">Call</span>
+      <i class="fas fa-phone"></i>
+    </a>
+
+    <!-- WHATSAPP -->
+    <a href="https://wa.me/919703257102" target="_blank" class="sisi-item sisi-whatsapp">
+      <span class="sisi-tooltip">WhatsApp</span>
+      <i class="fab fa-whatsapp"></i>
+    </a>
+
+  </div>
+
+</div>
+
+
+<script>
+const btn = document.getElementById("sisiMainBtn");
+const container = document.querySelector(".sisi-float");
+const icon = document.getElementById("sisiMainIcon");
+
+btn.addEventListener("click", () => {
+  container.classList.toggle("active");
+
+  // ICON CHANGE
+  if (container.classList.contains("active")) {
+    icon.classList.remove("fa-comment-dots");
+    icon.classList.add("fa-xmark");
+     
+  } else {
+    icon.classList.remove("fa-xmark");
+    icon.classList.add("fa-comment-dots");
+  }
+});
+</script>

@@ -1,0 +1,944 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+  <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet">
+  <title> Home - SISI SClinnovation Hub</title>
+
+  <!-- Favicon -->
+  <link rel="icon" href="images/logo.png" type="image/png">
+
+  <link rel="stylesheet" href="css/index.css">
+</head>
+
+<body>
+  <header class="navbar">
+    <div class="nav-container">
+      <div class="logo">
+        <img src="images/logo.png" alt="SI2 Logo">
+      </div>
+
+      <ul class="nav-menu" id="navMenu">
+        <li><a href="index.html" class="nav-link">Home</a></li>
+        <li><a href="about.html" class="nav-link">About Us</a></li>
+        <li class="dropdown">
+          <a href="#" class="nav-link dropdown-toggle">Services ▾</a>
+          <ul class="dropdown-menu">
+            <li><a href="computational-tools.html"> Computational Tools in Drug Discovery</a></li>
+            <li><a href="training-certification.html">Training & Certification</a></li>
+            <li><a href="invitro.html">Invitro</a></li>
+          </ul>
+        </li>
+        <li><a href="blog.html" class="nav-link">Blog</a></li>
+        <li><a href="contact.html" class="nav-link">Contact Us</a></li>
+      </ul>
+
+      <div class="menu-toggle" id="menuToggle">
+        <span class="bar"></span>
+        <span class="bar"></span>
+        <span class="bar"></span>
+      </div>
+    </div>
+  </header>
+  <script>
+    const menuToggle = document.getElementById("menuToggle");
+    const navMenu = document.getElementById("navMenu");
+
+    /* ✅ Toggle Mobile Menu */
+    menuToggle.addEventListener("click", () => {
+      menuToggle.classList.toggle("is-active");
+      navMenu.classList.toggle("active");
+    });
+
+    /* ✅ Close menu when clicking links */
+    document.querySelectorAll(".nav-link").forEach(link => {
+      link.addEventListener("click", () => {
+        if (window.innerWidth < 768 && !link.classList.contains("dropdown-toggle")) {
+          menuToggle.classList.remove("is-active");
+          navMenu.classList.remove("active");
+        }
+      });
+    });
+
+    /* ✅ FIXED: Multiple dropdown support */
+    document.querySelectorAll(".dropdown").forEach(dropdown => {
+      const toggle = dropdown.querySelector(".dropdown-toggle");
+
+      if (toggle) {
+        toggle.addEventListener("click", (e) => {
+          if (window.innerWidth < 768) {
+            e.preventDefault();
+
+            // Close others (optional premium UX 🔥)
+            document.querySelectorAll(".dropdown").forEach(d => {
+              if (d !== dropdown) d.classList.remove("active");
+            });
+
+            dropdown.classList.toggle("active");
+          }
+        });
+      }
+    });
+  </script>
+
+
+
+
+
+
+
+
+
+<section class="hero-section">
+
+  <!-- LEFT IMAGE -->
+  <div class="hero-img"></div>
+
+  <!-- RIGHT CONTENT -->
+  <div class="hero-content">
+    <div class="hero-card">
+
+      <!-- Animated Text -->
+      <p class="hero-sub" id="typText"></p>
+
+      <!-- Main Heading -->
+      <h1 class="hero-title">
+        We Are Dedicated To <br>
+        Bridging The Gap Between <br>
+        Scientific Innovation And <br>
+        Career Excellence
+      </h1>
+
+    </div>
+  </div>
+
+</section>
+
+
+
+<script>
+const heroText = "Welcome To SISI SciInnovate Hub";
+const heroEl = document.getElementById("typText");
+
+let heroIndex = 0;
+let heroPhase = "typing"; // typing → hold → black → deleting
+
+function heroTypingAnim() {
+
+  // ===== TYPING (RED) =====
+  if (heroPhase === "typing") {
+    heroEl.style.color = "#ff3b30"; // RED
+    heroEl.textContent = heroText.substring(0, heroIndex);
+    heroIndex++;
+
+    if (heroIndex > heroText.length) {
+      heroPhase = "hold";
+      setTimeout(heroTypingAnim, 800);
+      return;
+    }
+  }
+
+  // ===== HOLD =====
+  else if (heroPhase === "hold") {
+    heroPhase = "black";
+  }
+
+  // ===== CHANGE TO BLACK =====
+  else if (heroPhase === "black") {
+    heroEl.style.color = "#000"; // BLACK
+    heroPhase = "deleting";
+    setTimeout(heroTypingAnim, 600);
+    return;
+  }
+
+  // ===== DELETE =====
+  else if (heroPhase === "deleting") {
+    heroEl.textContent = heroText.substring(0, heroIndex);
+    heroIndex--;
+
+    if (heroIndex === 0) {
+      heroPhase = "typing";
+    }
+  }
+
+  setTimeout(heroTypingAnim, heroPhase === "deleting" ? 40 : 80);
+}
+
+heroTypingAnim();
+</script>
+<script>
+const heroCard = document.querySelector(".hero-card");
+
+function revealOnScroll() {
+  const cardTop = heroCard.getBoundingClientRect().top;
+  const triggerPoint = window.innerHeight - 100;
+
+  if (cardTop < triggerPoint) {
+    heroCard.classList.add("show");
+  }
+}
+
+window.addEventListener("scroll", revealOnScroll);
+
+// Run once on load too
+revealOnScroll();
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <section class="about-section">
+    <div class="container">
+
+      <!-- LEFT CONTENT -->
+      <div class="about-text">
+        <h1 data-aos="fade-up">ABOUT US</h1>
+
+        <p data-aos="fade-up" data-aos-delay="100">
+          At SISI SciInnovate Hub, we are dedicated to bridging the gap between scientific innovation and career
+          excellence. With a focus on computational drug discovery, training and certification, and career guidance, we
+          empower students, researchers, and professionals to achieve their full potential in the ever-evolving world of
+          science and pharmaceuticals.
+        </p>
+
+        <p data-aos="fade-up" data-aos-delay="200">
+          Our team of experts brings together decades of experience in drug discovery, computational tools, and academic
+          mentoring. Whether you’re a student looking to pursue a PhD abroad, a researcher seeking to enhance your
+          skills, or a professional aiming to advance your career, we provide the tools, training, and guidance you need
+          to succeed.
+        </p>
+        <div class="divider"></div>
+        <button data-aos="fade-up" data-aos-delay="300" class="btn">
+          Know More →
+        </button>
+      </div>
+
+      <!-- RIGHT IMAGE -->
+      <div class="about-image">
+        <img src="images/about.png" alt="About Image">
+      </div>
+
+    </div>
+  </section>
+
+  <!-- AOS JS -->
+  <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+  <script>
+    AOS.init({
+      duration: 1000,
+      once: true
+    });
+  </script>
+
+
+
+
+
+
+
+
+
+  <section class="values-section">
+    <div class="overlay"></div>
+
+    <div class="container">
+      <h2 class="title">OUR VALUES</h2>
+
+      <div class="values-grid">
+
+        <!-- Card 1 -->
+        <div class="card" data-aos="fade-right">
+          <div class="card-content">
+            <div class="icon">
+              <img src="images/values.png">
+            </div>
+            <div class="text">
+              <h3>Innovation</h3>
+              <p>We embrace new ideas and technologies to drive scientific progress.</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Card 2 -->
+        <div class="card" data-aos="fade-right">
+          <div class="card-content">
+            <div class="icon">
+              <img src="images/values.png">
+            </div>
+            <div class="text">
+              <h3>Excellence</h3>
+              <p>We strive for the highest standards in everything we do.</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Card 3 -->
+        <div class="card" data-aos="fade-left">
+          <div class="card-content">
+            <div class="icon">
+              <img src="images/values.png">
+            </div>
+            <div class="text">
+              <h3>Integrity</h3>
+              <p>We are committed to honesty, transparency, and ethical practices.</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Card 4 -->
+        <div class="card" data-aos="fade-left">
+          <div class="card-content">
+            <div class="icon">
+              <img src="images/values.png">
+            </div>
+            <div class="text">
+              <h3>Empowerment</h3>
+              <p>We believe in empowering individuals to achieve their dreams.</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Card 5 -->
+        <div class="card" data-aos="fade-right">
+          <div class="card-content">
+            <div class="icon">
+              <img src="images/values.png">
+            </div>
+            <div class="text">
+              <h3>Collaboration</h3>
+              <p>We work together with students, researchers, and organizations to create impactful solutions.</p>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <section class="services-section">
+    <div class="services-container">
+
+      <h2 class="ser-title">OUR SERVICES</h2>
+
+      <div class="services-grid">
+
+        <!-- CARD -->
+        <div class="service-card" data-aos="fade-left">
+          <div class="card-inner">
+            <h3>Guide Careers</h3>
+            <img src="images/service1.png" alt="">
+
+          </div>
+          <button class="btn-fill">Know More →</button>
+        </div>
+
+        <div class="service-card" data-aos="fade-left">
+          <div class="card-inner">
+            <h3>Build Skills</h3>
+            <img src="images/service2.png" alt="">
+
+          </div>
+          <button class="btn-fill">Know More →</button>
+        </div>
+
+        <div class="service-card" data-aos="fade-left">
+          <div class="card-inner">
+            <h3>Drive Discovery</h3>
+            <img src="images/service3.png" alt="">
+
+          </div>
+          <button class="btn-fill">Know More →</button>
+        </div>
+
+        <div class="service-card" data-aos="fade-left">
+          <div class="card-inner">
+            <h3>Inspire Growth</h3>
+            <img src="images/service4.png" alt="">
+
+          </div>
+          <button class="btn-fill">Know More →</button>
+        </div>
+
+        <div class="service-card" data-aos="fade-left">
+          <div class="card-inner">
+            <h3>Empower Innovators</h3>
+            <img src="images/service5.png" alt="">
+
+          </div>
+          <button class="btn-fill">Know More →</button>
+        </div>
+
+        <div class="service-card" data-aos="fade-left">
+          <div class="card-inner">
+            <h3>Invitro</h3>
+            <img src="images/service6.png" alt="">
+
+          </div>
+          <button class="btn-fill">Know More →</button>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+
+
+
+
+
+
+
+
+
+
+
+  <section class="cta-section">
+    <div class="cta-overlay"></div>
+
+    <div class="cta-content">
+
+      <p class="cta-sub">
+        We embrace new ideas and technologies to drive scientific progress
+      </p>
+
+      <div class="cta-anim">
+        <h2 class="text1">Book Your</h2>
+        <h2 class="text2">Appointment Now</h2>
+      </div>
+
+      <a href="contact.html" class="cta-btn">Contact Us →</a>
+
+    </div>
+  </section>
+  <script>
+    const text1 = document.querySelector(".text1");
+    const text2 = document.querySelector(".text2");
+
+    function loopAnimation() {
+
+      // STEP 1: show Book Your
+      text1.style.opacity = "1";
+      text1.style.transform = "scale(1)";
+
+      setTimeout(() => {
+        text1.style.opacity = "0";
+        text1.style.transform = "scale(1.3)";
+
+        // STEP 2: show Appointment
+        text2.style.opacity = "1";
+        text2.style.transform = "scale(1)";
+
+        setTimeout(() => {
+          text2.style.opacity = "0";
+          text2.style.transform = "scale(1.3)";
+
+          // 🔁 REPEAT AGAIN
+          setTimeout(loopAnimation, 200);
+        }, 1500);
+
+      }, 1500);
+    }
+
+    /* START ON SCROLL */
+    let started = false;
+
+    window.addEventListener("scroll", () => {
+      const section = document.querySelector(".cta-section");
+      const pos = section.getBoundingClientRect().top;
+
+      if (pos < window.innerHeight - 100 && !started) {
+        started = true;
+        loopAnimation();
+      }
+    });
+  </script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <section class="why-section">
+
+    <div class="why-container">
+
+      <!-- HEADING -->
+      <h2 class="why-title" data-aos="fade-up">
+        WHY CHOOSE SI2INNOVATE HUB?
+      </h2>
+
+      <!-- CARDS -->
+      <div class="why-grid">
+
+        <div class="why-card" data-aos="zoom-in" data-aos-delay="100">
+          <h3>Expertise</h3>
+          <p>
+            Decades of experience in drug discovery, computational tools,
+            and career guidance.
+          </p>
+        </div>
+
+        <div class="why-card" data-aos="zoom-in" data-aos-delay="200">
+          <h3>Comprehensive Services</h3>
+          <p>
+            From training and certification to career consultations and PhD abroad
+            assistance, we cover it all.
+          </p>
+        </div>
+
+        <div class="why-card" data-aos="zoom-in" data-aos-delay="300">
+          <h3>Personalized Approach</h3>
+          <p>
+            Tailored solutions to meet the unique needs of students,
+            researchers, and professionals.
+          </p>
+        </div>
+
+        <div class="why-card" data-aos="zoom-in" data-aos-delay="400">
+          <h3>Global Reach</h3>
+          <p>
+            A trusted partner for individuals and organizations worldwide.
+          </p>
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <section class="pr-gallery-section">
+    <h2 class="pr-gallery-title">IMAGE GALLERY</h2>
+
+    <div class="pr-gallery-wrapper">
+
+      <button class="pr-gallery-arrow" id="btnPrev">&#10094;</button>
+
+      <div class="pr-gallery-container">
+        <div class="pr-gallery-track" id="mainTrack">
+
+          <img src="images/g1.png" class="pr-gallery-img">
+          <img src="images/g2.png" class="pr-gallery-img">
+          <img src="images/service1.png" class="pr-gallery-img">
+          <img src="images/service2.png" class="pr-gallery-img">
+          <img src="images/service3.png" class="pr-gallery-img">
+          <img src="images/service4.png" class="pr-gallery-img">
+          <img src="images/service5.png" class="pr-gallery-img">
+          <img src="images/service6.png" class="pr-gallery-img">
+          <img src="images/g3.png" class="pr-gallery-img">
+          <img src="images/aboutbg.png" class="pr-gallery-img">
+          <img src="images/about.png" class="pr-gallery-img">
+
+        </div>
+      </div>
+
+      <button class="pr-gallery-arrow" id="btnNext">&#10095;</button>
+
+    </div>
+
+    <div class="pr-dots-container" id="dotsWrapper"></div>
+  </section>
+
+
+
+  <script>
+const galleryTrack = document.getElementById("mainTrack");
+const galleryImgs = Array.from(galleryTrack.children);
+const galleryDotsWrap = document.getElementById("dotsWrapper");
+const btnNext = document.getElementById("btnNext");
+const btnPrev = document.getElementById("btnPrev");
+
+const visibleCount = 5;
+const gap = 260;
+
+const total = galleryImgs.length;
+let currentIndex = total; // start from middle
+let isMoving = false;
+
+/* 🔥 CLONE IMAGES */
+galleryImgs.forEach(img => {
+  galleryTrack.appendChild(img.cloneNode(true));
+  galleryTrack.insertBefore(img.cloneNode(true), galleryTrack.firstChild);
+});
+
+/* SET START POSITION */
+galleryTrack.style.transform = `translateX(-${currentIndex * gap}px)`;
+
+/* CREATE DOTS */
+for (let i = 0; i < total; i++) {
+  const dot = document.createElement("span");
+  dot.className = "pr-dot" + (i === 0 ? " active" : "");
+
+  dot.onclick = () => {
+    if (isMoving) return;
+    currentIndex = i + total;
+    moveSlide();
+  };
+
+  galleryDotsWrap.appendChild(dot);
+}
+
+const dots = document.querySelectorAll(".pr-dot");
+
+/* UPDATE DOTS */
+function updateDots() {
+  let dotIndex = (currentIndex - total) % total;
+  if (dotIndex < 0) dotIndex += total;
+
+  dots.forEach((d, i) => {
+    d.classList.toggle("active", i === dotIndex);
+  });
+}
+
+/* MOVE FUNCTION */
+function moveSlide() {
+  isMoving = true;
+
+  galleryTrack.style.transition = "transform 0.5s ease";
+  galleryTrack.style.transform = `translateX(-${currentIndex * gap}px)`;
+
+  updateDots();
+}
+
+/* AFTER TRANSITION (LOOP FIX) */
+galleryTrack.addEventListener("transitionend", () => {
+  isMoving = false;
+
+  if (currentIndex >= total * 2) {
+    galleryTrack.style.transition = "none";
+    currentIndex = total;
+    galleryTrack.style.transform = `translateX(-${currentIndex * gap}px)`;
+  }
+
+  if (currentIndex < total) {
+    galleryTrack.style.transition = "none";
+    currentIndex = total * 2 - 1;
+    galleryTrack.style.transform = `translateX(-${currentIndex * gap}px)`;
+  }
+});
+
+/* BUTTONS */
+btnNext.onclick = () => {
+  if (!isMoving) {
+    currentIndex++;
+    moveSlide();
+  }
+};
+
+btnPrev.onclick = () => {
+  if (!isMoving) {
+    currentIndex--;
+    moveSlide();
+  }
+};
+</script>
+
+
+
+
+
+
+
+
+
+
+
+<section class="contact-section">
+
+  <div class="contact-container">
+
+    <!-- LEFT -->
+    <div class="contact-left" data-aos="fade-right">
+
+      <p class="sub">APPOINTMENT</p>
+      <h2 class="title" id="typingText"></h2>
+
+      <!-- PHONE -->
+      <div class="info-box">
+        <div class="icon-box">
+          <i class="fas fa-phone-alt"></i>
+        </div>
+        <div>
+          <h4>For Appointments and Inquirie</h4>
+          <p>+91 70325 71022</p>
+        </div>
+      </div>
+
+      <!-- ADDRESS -->
+      <div class="info-box">
+        <div class="icon-box">
+          <i class="fas fa-map-marker-alt"></i>
+        </div>
+        <div>
+          <h4>Address</h4>
+          <p>Hyderabad, Telangana 500084.</p>
+        </div>
+      </div>
+
+      <!-- EMAIL -->
+      <div class="info-box">
+        <div class="icon-box">
+          <i class="fas fa-envelope"></i>
+        </div>
+        <div>
+          <h4>Email</h4>
+          <p>info@si2innovate.com</p>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- RIGHT FORM -->
+    <div class="contact-form">
+      <form id="form">
+
+        <input type="text" id="name" placeholder="Your Name">
+        <input type="email" id="email" placeholder="Your Email">
+        <input type="text" id="phone" placeholder="Your Contact Number">
+        <input type="text" id="service" placeholder="Services">
+        <textarea id="message" placeholder="Your Message"></textarea>
+
+        <button type="submit">SUBMIT</button>
+
+      </form>
+    </div>
+
+  </div>
+
+</section>
+
+
+
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+
+  const text = "VISIT US TODAY";
+  const target = document.getElementById("typingText");
+
+  let index = 0;
+  let isDeleting = false;
+
+  function typeLoop() {
+
+    if (!isDeleting) {
+      target.textContent = text.substring(0, index + 1);
+      index++;
+
+      if (index === text.length) {
+        isDeleting = true;
+        setTimeout(typeLoop, 1000); // pause after full text
+        return;
+      }
+
+    } else {
+      target.textContent = text.substring(0, index - 1);
+      index--;
+
+      if (index === 0) {
+        isDeleting = false;
+      }
+    }
+
+    setTimeout(typeLoop, isDeleting ? 60 : 120);
+  }
+
+  typeLoop();
+});
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <footer class="footer">
+    <div class="footer-container">
+
+      <!-- LEFT -->
+      <div class="footer-col">
+        <img src="images/logo.png" alt="logo" class="footer-logo">
+        <p>
+          At SISI SciInnovate Hub, we are dedicated to bridging the gap
+          between scientific innovation and career excellence.
+        </p>
+
+        <div class="social-icons">
+          <a href="#"><i class="fab fa-linkedin-in"></i></a>
+          <a href="#"><i class="fab fa-facebook-f"></i></a>
+        </div>
+      </div>
+
+      <!-- QUICK LINKS -->
+      <div class="footer-col">
+        <h3>QUICK LINKS</h3>
+        <ul>
+          <li><a href="about.html">About Us</a></li>
+          <li><a href="services.html"> Services</a></li>
+          <li><a href="contact.html"> Contact Us</a></li>
+        </ul>
+      </div>
+
+      <!-- SERVICES -->
+      <div class="footer-col">
+        <h3>SERVICES</h3>
+        <ul>
+          <li><a href="computational-tools.html"> Computational Tools in Drug Discovery</a></li>
+          <li><a href="training-certification.html">Training and Certification</a></li>
+        </ul>
+      </div>
+
+      <!-- CONTACT -->
+      <div class="footer-col">
+        <h3>GET IN TOUCH</h3>
+
+        <div class="contact-item">
+          <i class="fas fa-phone"></i>
+          <div>
+            <strong>Contact Number</strong>
+            <p>+91 70325 71022</p>
+          </div>
+        </div>
+
+        <div class="contact-item">
+          <i class="fas fa-envelope"></i>
+          <div>
+            <strong>Email</strong>
+            <p>info@si2innovate.com</p>
+          </div>
+        </div>
+
+        <div class="contact-item">
+          <i class="fas fa-map-marker-alt"></i>
+          <div>
+            <strong>Address</strong>
+            <p>Hyderabad, Telangana 500084.</p>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- BOTTOM -->
+    <div class="footer-bottom">
+      © 2025 All Copyrights Reserved Si2innovate Hub |
+      Designed By
+      <a href="https://nfosoft.com" target="_blank">
+        nfoSoft Innovations
+      </a>
+    </div>
+  </footer>
+
+
+
+
+
+
+
+
+
+
+<div class="sisi-float">
+
+  <div class="sisi-main-btn" id="sisiMainBtn">
+  <span class="sisi-tooltip sisi-main-tooltip">Hide</span>
+  <i class="fas fa-comment-dots" id="sisiMainIcon"></i>
+</div>
+
+  <!-- OPTIONS -->
+  <div class="sisi-options">
+
+    <!-- PHONE -->
+    <a href="tel:+919703257102" class="sisi-item sisi-call">
+      <span class="sisi-tooltip">Call</span>
+      <i class="fas fa-phone"></i>
+    </a>
+
+    <!-- WHATSAPP -->
+    <a href="https://wa.me/919703257102" target="_blank" class="sisi-item sisi-whatsapp">
+      <span class="sisi-tooltip">WhatsApp</span>
+      <i class="fab fa-whatsapp"></i>
+    </a>
+
+  </div>
+
+</div>
+
+
+<script>
+const btn = document.getElementById("sisiMainBtn");
+const container = document.querySelector(".sisi-float");
+const icon = document.getElementById("sisiMainIcon");
+
+btn.addEventListener("click", () => {
+  container.classList.toggle("active");
+
+  // ICON CHANGE
+  if (container.classList.contains("active")) {
+    icon.classList.remove("fa-comment-dots");
+    icon.classList.add("fa-xmark");
+     
+  } else {
+    icon.classList.remove("fa-xmark");
+    icon.classList.add("fa-comment-dots");
+  }
+});
+</script>
